@@ -616,7 +616,7 @@ body.light .fi,body.light .fs{color:#0f172a;}
       <span class="filter-chip" onclick="setFilter('專業選修',this)">專業選修</span>
       <span class="filter-chip" onclick="setFilter('通識',this)">通識</span>
       <span class="filter-chip" onclick="setFilter('外系選修',this)">外系選修</span>
-      <span class="filter-chip" onclick="setFilter('自由選修',this)">自由選修</span>
+      <span class="filter-chip" onclick="setFilter('外語選修',this)">外語選修</span>
       <span class="filter-chip" onclick="setFilter('修課中',this)">修課中</span>
       <span class="filter-chip" onclick="setFilter('未通過',this)">需補修</span>
     </div>
@@ -794,7 +794,7 @@ body.light .fi,body.light .fs{color:#0f172a;}
       <div style="color:var(--text3);margin-top:7px"># 範例：</div>
       <div>113-2,資料庫管理,3,系必修,A,已通過,吳建宏老師</div>
       <div>113-2,行銷管理,3,通識,修課中,修課中,</div>
-      <div style="color:var(--text3);margin-top:7px"># 分類：校定必修 / 系必修 / 專業選修 / 通識 / 外系選修 / 自由選修</div>
+      <div style="color:var(--text3);margin-top:7px"># 分類：校定必修 / 系必修 / 專業選修 / 通識 / 外系選修 / 外語選修</div>
       <div># 狀態：已通過 / 修課中 / 未通過 / 未修</div>
     </div>
   </div>
@@ -890,7 +890,7 @@ body.light .fi,body.light .fs{color:#0f172a;}
   </div>
   <!-- feature cards -->
   <div class="help-grid">
-    <div class="gc help-card"><div class="help-card-icon">📋</div><div class="help-card-title">學分管理系統</div><div class="help-card-body"><ul><li>新增 / 編輯 / 刪除課程</li><li>分類：校定必修、系必修、專業選修、通識、外系選修、自由選修</li><li>課程狀態：已通過、修課中、未通過、未修</li><li>自動計算各類學分統計</li><li>學期篩選、關鍵字搜尋</li><li>選課模擬功能：試算修完後學分</li></ul><div class="help-note">📌 選課模擬模式下新增的課程不會計入正式統計</div></div></div>
+    <div class="gc help-card"><div class="help-card-icon">📋</div><div class="help-card-title">學分管理系統</div><div class="help-card-body"><ul><li>新增 / 編輯 / 刪除課程</li><li>分類：校定必修、系必修、專業選修、通識、外系選修、外語選修</li><li>課程狀態：已通過、修課中、未通過、未修</li><li>自動計算各類學分統計</li><li>學期篩選、關鍵字搜尋</li><li>選課模擬功能：試算修完後學分</li></ul><div class="help-note">📌 選課模擬模式下新增的課程不會計入正式統計</div></div></div>
     <div class="gc help-card"><div class="help-card-icon">🎓</div><div class="help-card-title">畢業門檻管理</div><div class="help-card-body"><ul><li>設定總學分、時數、英文門檻</li><li>支援 TOEIC / GEPT / 校內測驗 / 修課替代</li><li>自動判定各項是否達標</li><li>可新增自訂門檻項目（開關型 / 進度型）</li><li>個人資料同步（英文類型、時數）</li></ul><div class="help-note">📌 總學分數由學分管理頁面自動計算，無需手動輸入</div></div></div>
     <div class="gc help-card"><div class="help-card-icon">📊</div><div class="help-card-title">成績管理與預估</div><div class="help-card-body"><ul><li>自動計算學期 GPA 與累積 GPA</li><li>成績趨勢圖（各學期平均）</li><li>成績預估器：自訂各項評分比例</li><li>反推功能：目標分 → 期末需幾分</li><li>系統自動套用 4.0 / 百分制換算</li></ul></div></div>
     <div class="gc help-card"><div class="help-card-icon">🗓</div><div class="help-card-title">行事曆與課表</div><div class="help-card-body"><ul><li>月曆視圖，最多顯示 2 筆事件</li><li>點擊日期快速新增事件</li><li>支援匯入 .ics 行事曆檔案</li><li>今日課表與本週課表</li><li>課程時間可設定星期與節次</li></ul><div class="help-note">📌 手機版每格最多顯示 2 筆，點擊日期可看完整內容</div></div></div>
@@ -1105,8 +1105,8 @@ function toast(msg,type='ok'){
 }
 function showToast(msg,type){toast(msg,type);}
 
-const CAT_COLORS={校定必修:'#4f79ff',系必修:'#00c9a7',專業選修:'#f5a623',通識:'#ff6b9d',外系選修:'#8b5cf6',自由選修:'#38bdf8'};
-const CAT_TAGS={校定必修:'tag-accent',系必修:'tag-teal',專業選修:'tag-pending',通識:'tag-rose',外系選修:'tag-violet',自由選修:'tag-info'};
+const CAT_COLORS={校定必修:'#4f79ff',系必修:'#00c9a7',專業選修:'#f5a623',通識:'#ff6b9d',外系選修:'#8b5cf6',外語選修:'#38bdf8'};
+const CAT_TAGS={校定必修:'tag-accent',系必修:'tag-teal',專業選修:'tag-pending',通識:'tag-rose',外系選修:'tag-violet',外語選修:'tag-info'};
 const GRADE_TO_GPA={'A+':4.3,'A':4.0,'A-':3.7,'B+':3.3,'B':3.0,'B-':2.7,'C+':2.3,'C':2.0,'C-':1.7,'D':1.0,'F':0};
 function gradeToGPA(g){
   if(!g||g==='—'||g==='修課中'||g==='未修') return null;
@@ -1291,7 +1291,7 @@ function renderCourseTable(semF){
 }
 function renderCrSummary(){
   const el=document.getElementById('crSumRow');if(!el)return;
-  const cats=['校定必修','系必修','專業選修','通識','外系選修','自由選修'];
+  const cats=['校定必修','系必修','專業選修','通識','外系選修','外語選修'];
   const total=getTotalDone();
   const catData=cats.map(cat=>{const done=courses.filter(c=>!c.sim&&isCountable(c.status)&&c.cat===cat).reduce((s,c)=>s+(+c.cr||0),0);return{cat,done};});
   el.innerHTML=`
@@ -1352,7 +1352,7 @@ function renderDashboard(){
   // cat list
   const catListEl=document.getElementById('dashCatList');
   if(catListEl){
-    const cats=['校定必修','系必修','專業選修','通識','外系選修','自由選修'];
+    const cats=['校定必修','系必修','專業選修','通識','外系選修','外語選修'];
     catListEl.innerHTML=cats.map((cat,i)=>{
       const done=courses.filter(c=>!c.sim&&isCountable(c.status)&&c.cat===cat).reduce((s,c)=>s+(+c.cr||0),0);
       return`<div class="cat-item"><div class="cat-item-top"><div class="cat-dot" style="background:${Object.values(CAT_COLORS)[i]};box-shadow:0 0 6px ${Object.values(CAT_COLORS)[i]}"></div><div class="cat-name">${cat}</div><div class="cat-nums"><span style="color:var(--text);font-weight:500">${done}</span><span style="color:var(--text3)">學分</span>${done===0?`<span class="tag tag-pending">0</span>`:''}</div></div><div class="pbar" style="height:4px"><div class="pbar-fill" style="width:0%;background:${GRAD_COLORS[i]}" data-w="${Math.min(100,done/Math.max(1,(need/6))*100)}%"></div></div></div>`;
@@ -1785,7 +1785,7 @@ function parseImportCSV(text){
     if(cols.length<3)return;
     const [sem,name,cr,cat,grade,status,note]=cols;
     if(!name||isNaN(parseFloat(cr)))return;
-    rows.push({sem:sem||settings.curSem,name,cr:parseFloat(cr)||0,cat:cat||'自由選修',grade:grade||'—',status:status||'已通過',note:note||''});
+    rows.push({sem:sem||settings.curSem,name,cr:parseFloat(cr)||0,cat:cat||'外語選修',grade:grade||'—',status:status||'已通過',note:note||''});
   });
   return rows;
 }
@@ -1856,7 +1856,7 @@ async function exportPDF(){
 <div style="font-size:17px;font-weight:700;color:#0f172a;margin:0 0 10px;border-bottom:1px solid #e2e8f0;padding-bottom:7px">二、各類學分</div>
 <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:22px">
   <tr>${['分類','已修','修課中','未通過'].map(h=>`<th style="border:1px solid #cbd5e1;padding:8px 12px;background:#dbeafe;color:#1e3a8a;text-align:left">${h}</th>`).join('')}</tr>
-  ${['校定必修','系必修','專業選修','通識','外系選修','自由選修'].map(cat=>`<tr><td style="border:1px solid #cbd5e1;padding:8px 12px;font-weight:500">${cat}</td><td style="border:1px solid #cbd5e1;padding:8px 12px;color:#16a34a;font-weight:600">${courses.filter(c=>!c.sim&&c.cat===cat&&isCountable(c.status)).reduce((s,c)=>s+(+c.cr||0),0)}</td><td style="border:1px solid #cbd5e1;padding:8px 12px;color:#2563eb">${courses.filter(c=>!c.sim&&c.cat===cat&&c.status==='修課中').reduce((s,c)=>s+(+c.cr||0),0)}</td><td style="border:1px solid #cbd5e1;padding:8px 12px;color:#dc2626">${courses.filter(c=>!c.sim&&c.cat===cat&&c.status==='未通過').reduce((s,c)=>s+(+c.cr||0),0)}</td></tr>`).join('')}
+  ${['校定必修','系必修','專業選修','通識','外系選修','外語選修'].map(cat=>`<tr><td style="border:1px solid #cbd5e1;padding:8px 12px;font-weight:500">${cat}</td><td style="border:1px solid #cbd5e1;padding:8px 12px;color:#16a34a;font-weight:600">${courses.filter(c=>!c.sim&&c.cat===cat&&isCountable(c.status)).reduce((s,c)=>s+(+c.cr||0),0)}</td><td style="border:1px solid #cbd5e1;padding:8px 12px;color:#2563eb">${courses.filter(c=>!c.sim&&c.cat===cat&&c.status==='修課中').reduce((s,c)=>s+(+c.cr||0),0)}</td><td style="border:1px solid #cbd5e1;padding:8px 12px;color:#dc2626">${courses.filter(c=>!c.sim&&c.cat===cat&&c.status==='未通過').reduce((s,c)=>s+(+c.cr||0),0)}</td></tr>`).join('')}
 </table>
 <div style="font-size:17px;font-weight:700;color:#0f172a;margin:0 0 10px;border-bottom:1px solid #e2e8f0;padding-bottom:7px">三、畢業門檻</div>
 ${gradGroups.map(g=>`<div style="margin-bottom:14px"><div style="font-size:14px;font-weight:700;color:#1e3a8a;margin-bottom:7px">${g.icon} ${g.group}</div><table style="width:100%;border-collapse:collapse;font-size:13px"><tr><th style="border:1px solid #cbd5e1;padding:7px 11px;background:#dbeafe;text-align:left">項目</th><th style="border:1px solid #cbd5e1;padding:7px 11px;background:#dbeafe;text-align:left">說明</th><th style="border:1px solid #cbd5e1;padding:7px 11px;background:#dbeafe;text-align:center">狀態</th></tr>${g.items.map(item=>`<tr><td style="border:1px solid #cbd5e1;padding:7px 11px;font-weight:500">${item.name}</td><td style="border:1px solid #cbd5e1;padding:7px 11px;color:#475569">${item.desc}</td><td style="border:1px solid #cbd5e1;padding:7px 11px;text-align:center;font-weight:700;color:${item.done?'#16a34a':'#dc2626'}">${item.type==='progress'?`${item.cur}/${item.total} ${item.done?'（完成）':'（未完成）'}`:(item.done?'✓ 完成':'✗ 未完成')}</td></tr>`).join('')}</table></div>`).join('')}
